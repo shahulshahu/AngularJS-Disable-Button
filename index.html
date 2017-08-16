@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <script src="controller.js"></script>
+</head>
+
+<body style="text-align:center;">
+
+<h1> Happy Restaurant</h1>
+
+<div ng-app="MyApp" ng-controller="MyController">
+<h3> Menu</h3>
+<div ng-repeat="x in menu">
+{{x.type}}
+      <center>  <table border="1" cellpadding="5" cellspacing="5">
+      
+      
+            <tr><td ng-repeat="y in x.items">{{y}}</td></tr>
+            <tr><td ng-repeat="z in x.prices">{{z}} </td></tr>
+     
+
+</table>
+</center>        
+    </div>?
+
+  <p>Name of the customer : <input type="text" ng-model="name"></p>
+  
+  <p>Item ordered  : <input type="text" ng-model="order"></p>
+  <p>Item Quantity : <input type="number" ng-model="q"></p>
+
+  <p>Item cost     : <input type="number" ng-model="c"></p>
+
+<div ng-if="c">
+
+ <p>The Customer name in Lower Case: {{ name | lowercase }}</p>
+ <p>The Customer name in Upper Case:{{ name | uppercase }}</p>
+<br>
+<p>The Customer name in Lower Case: {{ order | lowercase }}</p>
+ <p>The Customer name in Upper Case:{{ order | uppercase }}</p>
+
+
+  <p>cost: {{a}} </p> 
+  <P> service tax : {{sat}}</p>
+  <p>vat : {{v}}</p>
+  <p>Swatchbharat tax : {{st}}</p>
+  <p>Total cost :{{tc}}</p>
+ 
+
+
+</div>
+
+<button ng-model="button" value="Click to Show Bill" ng-click="ShowAlert()" ng-disabled="!c">Click for Print bill</button>
+
+</div>
+
+
+
+</body>
+</html>
